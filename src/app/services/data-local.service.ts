@@ -92,7 +92,20 @@ export class DataLocalService {
   async escribirEnArchivo( text: string){
     await this.file.writeExistingFile( this.file.dataDirectory, 'registros.csv',text);
 
-    console.log('Archivo creado');
-    console.log(this.file.dataDirectory + 'registros.csv');
+    const archivo = `${this.file.dataDirectory}registros.csv`;
+    let email = {
+      to: 'jorge@doe.com',
+      //cc: 'erika@mustermann.de',
+      //bcc: ['john@doe.com', 'jane@doe.com'],
+      attachments: [
+        archivo
+      ],
+      subject: 'Backup de scans',
+      body: 'los scanners realizados -<strong>ScanApp</strong>',
+      isHtml: true
+    };
+    
+    // Send a text message using default options
+    this.emailComposer.open(email);
   }
 }
