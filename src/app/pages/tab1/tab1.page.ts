@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+//import { BarcodeScanner } from '@capacitor-community/barcode-scanner'
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { DataLocalService } from 'src/app/services/data-local.service';
 @Component({
@@ -28,7 +29,7 @@ export class Tab1Page {
     }).catch(err => {
       console.log('Error',err);
       //this.dataLocal.guardarRegistro( 'QRCODE','https://google.com');
-      this.dataLocal.guardarRegistro( 'QRCODE','geo:-27.446201257604308,-58.992711148435454');
+      //this.dataLocal.guardarRegistro( 'QRCODE','geo:-27.446201257604308,-58.992711148435454');
     });
 
   }
